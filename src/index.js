@@ -1,10 +1,5 @@
 const $ = require('jquery');
 
-
-/**
- * es6 modules and imports
- */
-
 // this runs the loading.gif image
 const loadingGif = () => {
     $('.container-loader').html("<img src='./img/page-loader.gif' class='loader'>");
@@ -19,10 +14,6 @@ function formLoader() {
     $('.container-loader').hide()
 }
 
-
-/**
- * require style imports
- */
 const {getMovies} = require('./api.js');
 
 getMovies().then((movies) => {
@@ -46,7 +37,6 @@ $('#movie-stuff').html(list);
   console.log(error);
 });
 
-
 // this adds a movie when clicked
 $('#add-movie-button').click(function (e) {
     let title = $('#new-title').val();
@@ -59,6 +49,30 @@ $('#add-movie-button').click(function (e) {
     let url = '/api/movies';
     let options = {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({title, rating}),
+    };
+    fetch(url, options)
+        .then(/* post was created successfully */)
+        .catch(/* handle errors */);
+});
+
+//this edits a movie when clicked
+$('#edit-movie-button').click(function (e) {
+    let title = $('#edit-title').val();
+    let rating = $('#edit-rating').val();
+    let id = $(this).attr("data-id");
+    let movie = {
+        title: title,
+        rating: rating,
+        id: id
+    };
+
+    let url = '/api/movies/${id}';
+    let options = {
+        method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
         },
