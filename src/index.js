@@ -9,11 +9,13 @@ loadingGif();
 // hide form until called in getMovies function
 $('.add-movie-form').hide();
 $('.search-box').hide();
+$('.movie-table').hide();
 
 // this function shows the forms upon page load when called
 function formLoader() {
     $('.add-movie-form').show();
     $('.search-box').show();
+    $('.movie-table').show();
     $('.container-loader').hide()
 }
 
@@ -23,34 +25,15 @@ function updateMovieList() {
         formLoader();
         let moviesBuilder = '';
         movies.forEach(({title, rating, id}) => {
-            moviesBuilder += `<div class="movie-display">`;
             moviesBuilder += `<tr>`;
-            moviesBuilder += `<td class="movies">${title}</td>`;
-            moviesBuilder += `<td class="movies">${rating}</td>`;
-            moviesBuilder += `<td class="movies">${id}</td>`;
+            moviesBuilder += `<td><h4>${title}</h4></td>`;
+            moviesBuilder += `<td><h4>${rating}</h4></td>`;
+            moviesBuilder += `<td><h4>${id}</h4></td>`;
             moviesBuilder += `<td><button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button></td>`;
             moviesBuilder += `</tr>`;
-            moviesBuilder += `</div>`;
 
             $('#movie-stuff').html(moviesBuilder);
         });
-
-            // moviesBuilder.push(`<strong>Movie Title:</strong> ${title} <strong>Rating:</strong> ${rating} <strong>Film ID:</strong> ${id} <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>`);
-        // });
-        //
-        // // this builds movie html and prints to page
-        // let list = `<div class="movie-display">`;
-        //
-        // for (let mov of moviesBuilder) {
-        //
-        //     list += `<h4 class="movies"> ${mov} </h4>`;
-        //     list += `<br>`;
-        // }
-        //
-        // list += `</div>`;
-        //
-        // $('#movie-stuff').html(list);
-
 
         $('.deleteBtn').click((e) => {
             e.preventDefault();
@@ -123,31 +106,24 @@ function deleteMovie(id) {
 updateMovieList();
 
 //################################################# SEARCH BOX FUNCTIONALITY ###########################################
-// function searchMovies(input) {
-//     let searchedBoxMovies = movieName.value.toLowerCase();
-//     getMovies().then((movies) => {
-//         let filteredMovies = [];
-//         movies.forEach(function (movie) {
-//             if(movie.name.toLowerCase().includes(searchedBoxMovies)){
-//                 filteredMovies.push(movie);
-//             }
-//         });
-//         movieList.innerHTML = updateMovieList(filteredMovies);
-//     });
-//     return input
-// }
-// let movieList = document.querySelector('#movie-stuff');
-// const movieName = document.querySelector("#search-box");
-// movieName.addEventListener("keydown", searchMovies);
+function searchMovie() {
+    // Declare variables
+    let input, filter, table, tr, td, i;
+    input = document.getElementById("search-box");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
 
-// function searchMovies() {
-//     $("#search-box").on("keyup", function() {
-//         let g = $(this).val().toLowerCase();
-//         $(".movie-display .movies").each(function() {
-//             let s = $(this).text().toLowerCase();
-//             $(this).closest('.movie-display')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
-//         });
-//     });
-// }
-//
-// searchMovies();
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }
+    }
+}
+$('#search-box').on('keyup', searchMovie);
