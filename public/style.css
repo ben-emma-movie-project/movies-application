@@ -102,8 +102,10 @@ ul {
     color: deeppink;
 }
 
-.title {
-
+.container-gif {
+    position: relative;
+    left: 700px;
+    top: 100px;
 }
 
 
