@@ -6,17 +6,24 @@ const loadingGif = () => {
 };
 loadingGif();
 
+const loadGif = () => {
+    $('.container-gif').html("<img src='./img/ajax-loader.gif' class='load'>");
+};
+loadGif();
+
 // hide form until called in getMovies function
 $('.add-movie-form').hide();
 $('.search-box').hide();
 $('.movie-table').hide();
+$('.container-gif').hide();
+
 
 // this function shows the forms upon page load when called
 function formLoader() {
     $('.add-movie-form').show();
     $('.search-box').show();
     $('.movie-table').show();
-    $('.container-loader').hide()
+    $('.container-loader').hide();
 }
 
 //################################################# UPDATE MOVIES FUNCTION #############################################
@@ -39,7 +46,7 @@ function updateMovieList() {
             e.preventDefault();
             let id = event.currentTarget.id.split('-');
             deleteMovie(id[2]);
-            $('#movie-stuff' + id[2]).hide();
+            $(e.currentTarget).parent().parent().fadeOut(1200);
             updateMovieList()
         });
 
@@ -67,8 +74,14 @@ $('#add-movie-button').click(function (e) {
         },
         body: JSON.stringify({title, rating}),
     };
+    $('#myTable').hide();
+    $('.container-gif').show();
     fetch(url, options)
-        .then( () => updateMovieList())
+        .then( () => {
+            updateMovieList();
+            $('.container-gif').hide();
+            $('#myTable').show();
+        })
         .catch(/* handle errors */);
 });
 
@@ -87,8 +100,14 @@ $('#edit-movie-button').click(function (e) {
         },
         body: JSON.stringify({title, rating, id}),
     };
+    $('#myTable').hide();
+    $('.container-gif').show();
     fetch(url, options)
-        .then(() => updateMovieList())
+        .then( () => {
+            updateMovieList();
+            $('.container-gif').hide();
+            $('#myTable').show();
+        })
         .catch(/* handle errors */);
 });
 
@@ -126,4 +145,5 @@ function searchMovie() {
         }
     }
 }
+
 $('#search-box').on('keyup', searchMovie);

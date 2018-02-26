@@ -9,26 +9,6 @@
       "title": "Blade Runner",
       "rating": "5",
       "id": 2
-    },
-    {
-      "title": "Lord of the Rings: The Two Towers",
-      "rating": "2",
-      "id": 3
-    },
-    {
-      "title": "Blade Runner 2049",
-      "rating": "5",
-      "id": 4
-    },
-    {
-      "title": "Mute",
-      "rating": "1",
-      "id": 5
-    },
-    {
-      "title": "Star Wars: A New Hope",
-      "rating": "5",
-      "id": 6
     }
   ]
 }
