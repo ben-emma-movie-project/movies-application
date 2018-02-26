@@ -14,16 +14,6 @@
       "title": "Lord of the Rings: The Two Towers",
       "rating": "2",
       "id": 3
-    },
-    {
-      "title": "Rogue One: A Star Wars Story",
-      "rating": "3",
-      "id": 4
-    },
-    {
-      "title": "Blade Runner 2049",
-      "rating": "5",
-      "id": 5
     }
   ]
 }
