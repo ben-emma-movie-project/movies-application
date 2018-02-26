@@ -44,7 +44,7 @@ ul {
 .search-box {
     position: absolute;
     top: 35px;
-    right: 725px;
+    right: 740px;
 }
 
 .add-edit-button {
@@ -102,12 +102,8 @@ ul {
     color: deeppink;
 }
 
-.movie-display {
-    width: 100%;
-    text-align: center;
-    border: 2px solid deepskyblue;
-    border-radius: 5px;
-    padding: 20px;
+.title {
+
 }
 
 
