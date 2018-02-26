@@ -17,31 +17,39 @@ function formLoader() {
     $('.container-loader').hide()
 }
 
-const {getMovies} = require('./api.js');
-
-const moviesBuilder = document.getElementById('movie-stuff');
-
 //################################################# UPDATE MOVIES FUNCTION #############################################
 function updateMovieList() {
     getMovies().then((movies) => {
         formLoader();
-        let moviesBuilder = [];
+        let moviesBuilder = '';
         movies.forEach(({title, rating, id}) => {
-            moviesBuilder.push(`<strong>Movie Title:</strong> ${title} <strong>Rating:</strong> ${rating} <strong>Film ID:</strong> ${id} <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>`);
+            moviesBuilder += `<div class="movie-display">`;
+            moviesBuilder += `<tr>`;
+            moviesBuilder += `<td class="movies">${title}</td>`;
+            moviesBuilder += `<td class="movies">${rating}</td>`;
+            moviesBuilder += `<td class="movies">${id}</td>`;
+            moviesBuilder += `<td><button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button></td>`;
+            moviesBuilder += `</tr>`;
+            moviesBuilder += `</div>`;
+
+            $('#movie-stuff').html(moviesBuilder);
         });
 
-        // this builds movie html and prints to page
-        let list = `<div class="movie-display">`;
-
-        for (let mov of moviesBuilder) {
-
-            list += `<h4 class="movies"> ${mov} </h4>`;
-            list += `<br>`;
-        }
-
-        list += `</div>`;
-
-        $('#movie-stuff').html(list);
+            // moviesBuilder.push(`<strong>Movie Title:</strong> ${title} <strong>Rating:</strong> ${rating} <strong>Film ID:</strong> ${id} <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>`);
+        // });
+        //
+        // // this builds movie html and prints to page
+        // let list = `<div class="movie-display">`;
+        //
+        // for (let mov of moviesBuilder) {
+        //
+        //     list += `<h4 class="movies"> ${mov} </h4>`;
+        //     list += `<br>`;
+        // }
+        //
+        // list += `</div>`;
+        //
+        // $('#movie-stuff').html(list);
 
 
         $('.deleteBtn').click((e) => {
@@ -57,6 +65,10 @@ function updateMovieList() {
         console.log(error);
     });
 }
+
+const {getMovies} = require('./api.js');
+
+const moviesBuilder = document.getElementById('movie-stuff');
 
 //################################################# ADD NEW MOVIE FROM DB ##############################################
 $('#add-movie-button').click(function (e) {
@@ -128,14 +140,14 @@ updateMovieList();
 // const movieName = document.querySelector("#search-box");
 // movieName.addEventListener("keydown", searchMovies);
 
-function searchMovies() {
-    $("#search-box").on("keyup", function() {
-        let g = $(this).val().toLowerCase();
-        $(".movie-display .movies").each(function() {
-            let s = $(this).text().toLowerCase();
-            $(this).closest('.movie-display')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
-        });
-    });
-}
-
-searchMovies();
+// function searchMovies() {
+//     $("#search-box").on("keyup", function() {
+//         let g = $(this).val().toLowerCase();
+//         $(".movie-display .movies").each(function() {
+//             let s = $(this).text().toLowerCase();
+//             $(this).closest('.movie-display')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+//         });
+//     });
+// }
+//
+// searchMovies();
