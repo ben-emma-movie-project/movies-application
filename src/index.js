@@ -2,12 +2,12 @@ const $ = require('jquery');
 
 // this runs the loading.gif image
 const loadingGif = () => {
-    $('.container-loader').html("<img src='./img/page-loader.gif' class='loader'>");
+    $('.container-loader').html("<img src='./img/block_loader.gif' class='loader'>");
 };
 loadingGif();
 
 const loadGif = () => {
-    $('.container-gif').html("<img src='./img/ajax-loader.gif' class='load'>");
+    $('.container-gif').html("<img src='./img/loader.gif' class='load'>");
 };
 loadGif();
 
@@ -33,9 +33,9 @@ function updateMovieList() {
         let moviesBuilder = '';
         movies.forEach(({title, rating, id}) => {
             moviesBuilder += `<tr>`;
-            moviesBuilder += `<td><h4>${title}</h4></td>`;
-            moviesBuilder += `<td><h4>${rating}</h4></td>`;
-            moviesBuilder += `<td><h4>${id}</h4></td>`;
+            moviesBuilder += `<td data-title=${title}><h4>${title}</h4></td>`;
+            moviesBuilder += `<td data-rating=${rating}><h4>${rating}</h4></td>`;
+            moviesBuilder += `<td data-id=${id}><h4>${id}</h4></td>`;
             moviesBuilder += `<td><button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button></td>`;
             moviesBuilder += `</tr>`;
 
@@ -50,10 +50,16 @@ function updateMovieList() {
             updateMovieList()
         });
 
+        // $('td h4').click(function (e) {
+        //     console.log(this.innerHTML);
+        //     // $('#edit-title').val(this.firstChild().innerHTML);
+        // });
+
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
     });
+
 }
 
 const {getMovies} = require('./api.js');
@@ -147,3 +153,16 @@ function searchMovie() {
 }
 
 $('#search-box').on('keyup', searchMovie);
+
+//################################################# EDIT POPULATE FUNCTIONALITY ########################################
+// let movieTable = document.getElementById('myTable'),rIndex;
+//
+// for (let i = 1; i < movieTable.rows.length; i++) {
+//     movieTable.rows[i].onclick = function () {
+//         rIndex = this.rowIndex;
+//         console.log(document.getElementById('edit-title').value() = this.cells[0].innerHTML);
+//         document.getElementById('edit-rating').value() = this.cells[0].innerHTML;
+//
+//     }
+// }
+

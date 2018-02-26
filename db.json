@@ -9,6 +9,46 @@
       "title": "Blade Runner",
       "rating": "5",
       "id": 2
+    },
+    {
+      "title": "Lord of the Rings: The Two Towers",
+      "rating": "3",
+      "id": 3
+    },
+    {
+      "title": "Star Wars: A New Hope",
+      "rating": "5",
+      "id": 4
+    },
+    {
+      "title": "Lion King",
+      "rating": "4",
+      "id": 5
+    },
+    {
+      "title": "Lord of the Rings: Return of the King",
+      "rating": "3",
+      "id": 6
+    },
+    {
+      "title": "Fast Times",
+      "rating": "5",
+      "id": 7
+    },
+    {
+      "title": "Blade",
+      "rating": "5",
+      "id": 8
+    },
+    {
+      "title": "Back to the Future",
+      "rating": "5",
+      "id": 9
+    },
+    {
+      "title": "hello",
+      "rating": "select",
+      "id": 10
     }
   ]
 }
