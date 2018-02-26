@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito|Pacifico|Varela+Round');
+
+* {
+    box-sizing: border-box;
+    font-family: Nunito, sans-serif;
+}
+
 html, body {
     height: 100%;
+}
+
+.hr-style {
+    border: none;
+    background-color: #5796cf;
+    height: 2px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+
+.page-header {
+    font-family: Pacifico, sans-serif;
 }
 
 .loader {
@@ -21,10 +40,79 @@ html, body {
 ul {
     font-size: 18px;
 }
-.right {
-    clear: both;
-}
+
 .search-box {
+    position: absolute;
+    top: 35px;
+    right: 725px;
+}
+
+.add-edit-button {
+    font-size: 15px;
+    border: 2px solid lightskyblue;
+    color: skyblue;
+    padding: 15px 30px;
+    border-radius: 300px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    background: transparent;
+    position: relative;
+}
+
+.add-edit-button:hover {
+    -webkit-transition: all .35s;
+    box-shadow: inset 2px -100px 0 #99f4f8;
+    border: 2px solid lightskyblue;
+    background: magenta;
+    color: deeppink;
+}
+
+.add-new-movie-button-move {
+    position: relative;
+    left: 82px;
+    top: 20px
+}
+
+.edit-movie-button-move {
+    position: relative;
+    left: 95px;
+    top: 20px
+}
+
+.deleteBtn {
+    font-size: 15px;
+    padding: 5px;
+    border: 1px solid lightskyblue;
+    color: skyblue;
+    border-radius: 5px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1;
+    position: relative;
+}
+
+.deleteBtn:hover {
+    -webkit-transition: all .35s;
+    box-shadow: inset 100px 0px #99f4f8;
+    border: 2px solid lightskyblue;
+    background: magenta;
+    color: deeppink;
+}
+
+.movie-display {
+    width: 100%;
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+}
+
+.movies {
     text-align: center;
 }
+
+//
+
+
 

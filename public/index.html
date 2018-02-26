@@ -9,17 +9,28 @@
 <body>
     <div class="container">
         <div class="page-header">
-            <h1>Movie Database</h1>
+
+            <h1>Movie Database:</h1>
+
         </div>
+
         <div class="container-loader"></div>
+
         <div class="row"></div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="add-movie-form">
+
                     <form class="add-movie">
-                        <h4>Add a New Movie to Database</h4>
-                        <label for="new-title">New Title:</label>
-                        <input type="text" id="new-title" placeholder="enter movie title...">
+                        <h4>Add a New Movie to the Database</h4>
+
                         <br>
+
+                        <label for="new-title">New Title:</label>
+                        <input type="text" id="new-title" class="form-control" placeholder="enter movie title...">
+
+                        <br>
+                        <br>
+
                         <label for="new-rating">Movie Rating:</label>
                         <select name="rating" id="new-rating">
                             <option value="select" selected>Select Movie Rating</option>
@@ -29,18 +40,31 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
+
                         <br>
-                        <button type="submit" id="add-movie-button">Add New Movie</button>
+                        <br>
+
+                        <button type="submit" id="add-movie-button" class="add-new-movie-button-move button add-edit-button">Add New Movie</button>
                     </form>
-                    <hr>
+
+                    <hr class="hr-style">
+
                     <form class="edit-movie">
                         <h4>Edit Existing Movie in Database</h4>
+
+                        <br>
+                        <br>
+
                         <label for="edit-movie-id">Movie Edit ID:</label>
-                        <input type="text" id="edit-movie-id" placeholder="enter movie ID...">
+                        <input type="text" id="edit-movie-id" class="form-control" placeholder="enter movie ID...">
+
                         <br>
+
                         <label for="edit-title">Edit Title:</label>
-                        <input type="text" id="edit-title" placeholder="edit movie title...">
+                        <input type="text" id="edit-title" class="form-control" placeholder="edit movie title...">
+
                         <br>
+
                         <label for="edit-rating">Edit Rating:</label>
                         <select name="edit-rating" id="edit-rating">
                             <option value="select">Edit Movie Rating</option>
@@ -50,16 +74,23 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
+
                         <br>
-                        <button type="submit" id="edit-movie-button">Edit Movie</button>
+                        <br>
+
+                        <button type="submit" id="edit-movie-button" class="edit-movie-button-move button add-edit-button">Edit Movie</button>
                     </form>
+
                 </div>
             </div>
+
             <div class="search-box">
                 <label for="search-box">Search a Movie:</label>
-                <input type="text" id="search-box" placeholder="search for a movie...">
+                <input type="text" id="search-box" class="form-control" placeholder="search for a movie...">
             </div>
-            <div class="col-md-9" id="movie-stuff"></div>
+
+            <div class="col-md-8" id="movie-stuff"></div>
+
         <script src="/main.js"></script>
     </div>
 </body>

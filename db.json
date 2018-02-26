@@ -6,7 +6,7 @@
       "id": 1
     },
     {
-      "title": "Star Wars: A New Hope",
+      "title": "Blade Runner",
       "rating": "5",
       "id": 2
     },
@@ -21,9 +21,16 @@
       "id": 4
     },
     {
-      "title": "Lord of the Rings: The Return of the King",
-      "rating": "4",
+      "title": "Blade Runner 2049",
+      "rating": "5",
       "id": 5
+    },
+    {
+      "title": "Lord of the Rings: The Fellowship of the Ring",
+      "rating": "5",
+      "id": 6
     }
   ]
 }
+
+//

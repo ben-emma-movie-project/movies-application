@@ -25,16 +25,24 @@ const moviesBuilder = document.getElementById('movie-stuff');
 function updateMovieList() {
     getMovies().then((movies) => {
         formLoader();
-        moviesBuilder.innerHTML = ('');
+        let moviesBuilder = [];
         movies.forEach(({title, rating, id}) => {
-            moviesBuilder.innerHTML +=
-                `
-        <div class="movie-display">
-        ${id}. The title of the movie is: ${title} and the rating is: ${rating}. <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>
-        </div>
-            `
-            ;
+            moviesBuilder.push(`<strong>Movie Title:</strong> ${title} <strong>Rating:</strong> ${rating} <strong>Film ID:</strong> ${id} <button type="submit" id="del-btn-${id}" class="deleteBtn">Delete Movie</button>`);
         });
+
+        // this builds movie html and prints to page
+        let list = `<div class="movie-display">`;
+
+        for (let mov of moviesBuilder) {
+
+            list += `<h4 class="movies"> ${mov} </h4>`;
+            list += `<br>`;
+        }
+
+        list += `</div>`;
+
+        $('#movie-stuff').html(list);
+
 
         $('.deleteBtn').click((e) => {
             e.preventDefault();
@@ -43,12 +51,12 @@ function updateMovieList() {
             $('#movie-stuff' + id[2]).hide();
             updateMovieList()
         });
+
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
         console.log(error);
     });
 }
-
 
 //################################################# ADD NEW MOVIE FROM DB ##############################################
 $('#add-movie-button').click(function (e) {
@@ -102,6 +110,13 @@ function deleteMovie(id) {
 
 updateMovieList();
 
+
+
+
+// $('.add-movie').click(function () {
+//     $(this).next().slideToggle();
+// });
+
 //################################################# SEARCH BOX FUNCTIONALITY ###########################################
 // function searchMovies(input) {
 //     let searchedBoxMovies = movieName.value.toLowerCase();
@@ -118,3 +133,4 @@ updateMovieList();
 // let movieList = document.querySelector('#movie-stuff');
 // const movieName = document.querySelector("#search-box");
 // movieName.addEventListener("keypress", searchMovies);
+//
