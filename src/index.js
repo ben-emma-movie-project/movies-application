@@ -110,13 +110,6 @@ function deleteMovie(id) {
 
 updateMovieList();
 
-
-
-
-// $('.add-movie').click(function () {
-//     $(this).next().slideToggle();
-// });
-
 //################################################# SEARCH BOX FUNCTIONALITY ###########################################
 // function searchMovies(input) {
 //     let searchedBoxMovies = movieName.value.toLowerCase();
@@ -128,9 +121,21 @@ updateMovieList();
 //             }
 //         });
 //         movieList.innerHTML = updateMovieList(filteredMovies);
-//     })
+//     });
+//     return input
 // }
 // let movieList = document.querySelector('#movie-stuff');
 // const movieName = document.querySelector("#search-box");
-// movieName.addEventListener("keypress", searchMovies);
-//
+// movieName.addEventListener("keydown", searchMovies);
+
+function searchMovies() {
+    $("#search-box").on("keyup", function() {
+        let g = $(this).val().toLowerCase();
+        $(".movie-display .movies").each(function() {
+            let s = $(this).text().toLowerCase();
+            $(this).closest('.movie-display')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+        });
+    });
+}
+
+searchMovies();
