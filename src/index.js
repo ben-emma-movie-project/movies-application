@@ -37,7 +37,6 @@ function updateMovieList() {
 
             list += `<h4 class="movies"> ${mov} </h4>`;
             list += `<br>`;
-
         }
 
         list += `</div>`;
@@ -134,3 +133,4 @@ updateMovieList();
 // let movieList = document.querySelector('#movie-stuff');
 // const movieName = document.querySelector("#search-box");
 // movieName.addEventListener("keypress", searchMovies);
+//
