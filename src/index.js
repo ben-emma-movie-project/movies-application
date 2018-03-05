@@ -7,7 +7,7 @@ const loadingGif = () => {
 loadingGif();
 
 const loadGif = () => {
-    $('.container-gif').html("<img src='./img/loader.gif' class='load'>");
+    $('.container-gif').html("<img src='./img/paddle.gif' class='load'>");
 };
 loadGif();
 

@@ -106,9 +106,9 @@ ul {
 
 .container-gif {
     position: relative;
-    left: 500px;
-    top: 100px;
-    display: inline;
+    left: 140px;
+    top: 30px;
+    display: inline-block;
 }
 
 
